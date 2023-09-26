@@ -5,9 +5,9 @@ CREATE DATABASE book_store;
 CREATE TABLE books(
     Id_Buku INT PRIMARY KEY NOT NULL,
     Judul_Buku VARCHAR,
-    Pengarang VARCHAR,
+    Pengarang VARCHAR(65),
     Tahun_Terbit YEAR,
-    Penerbit VARCHAR,
+    Penerbit VARCHAR(65),
     Tanggal_Dibuat DATE,
     Tanggal_Diupdate DATE
 );
@@ -95,8 +95,8 @@ CREATE TABLE book_categories (
     Id INT PRIMARY KEY NOT NULL,
     Id_Category INT NOT NULL,
     Id_Buku INT NOT NULL,
-    Tanggal_Dibuat VARCHAR,
-    Tanggal_Diupdate VARCHAR,
+    Tanggal_Dibuat DATE,
+    Tanggal_Diupdate DATE,
   	FOREIGN KEY (Id_Category) REFERENCES category(Id_Category),
  	FOREIGN KEY (Id_Buku) REFERENCES books(Id_Buku)
 );
@@ -113,10 +113,7 @@ INSERT INTO book_categories VALUES (
 
 --SOAL 9
 
-SELECT book_categories.Id, books.Judul_Buku, category.Nama_Category 
-FROM books 
-INNER JOIN book_categories ON  books.Id_Buku = book_categories.Id_Buku 
-INNER JOIN category ON category.Id_Category = book_categories.Id_Category;
+SELECT book_categories.Id, books.Judul_Buku, category.Nama_Category FROM books INNER JOIN book_categories ON  books.Id_Buku = book_categories.Id_Buku INNER JOIN category ON category.Id_Category = book_categories.Id_Category;
 
 --SOAL 10
 
