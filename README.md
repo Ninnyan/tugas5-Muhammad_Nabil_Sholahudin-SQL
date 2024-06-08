@@ -11,4 +11,7 @@
 ## Admin Endpoint
 |Endpoint|METHOD|BODY|Usage|Example|HEADERS |
 |------------|------------|---------|---------|---------|------------|
-|/auth-private/admin/register|/POST|"nama": string, "email": string, "password": string,"gender": string,"telephone": string,"admin_key": string,|Register Admin|-|{Content-Type: application/json}|
+|/auth-private/admin/register|/POST|"nama": string, "email": string, "password": string,"gender": string,"telephone": string,"admin_key": string|Register Admin|-|{Content-Type: application/json}|
+|/auth-private/admin/login|/POST|"email": string,"password": string|Login Admin|-|-|
+|/auth-private/admin/update?idAdmin={id_admin}|/PUT|"nama": string, "email": string, "password": string,"gender": string,"telephone": string,"admin_key": string|/auth-private/admin/update?idAdmin=ab3bb3f6b4834ff79d956|{Authorizations: Bearer {token}, Content-Type: application/json}|
+|/places/add-destinasi?idAdmin={id_admin}|/POST|"name": string,"deskripsi": string,"harga_tiket: string,"jam_operasional": string,"provinsi": string,"photos": 3 file|Menambahkan Data Wisata|/places/add-destinasi?idAdmin=ab3bb3f6b4834ff79d956|{Authorizations: Bearer {token}, Content-Type: application/json}|
